@@ -1,0 +1,56 @@
+.navContent {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+     bottom: 0; 
+     left: 0;
+     width: 100%;
+    padding: 1rem;
+    background-color: #1A4484;
+  
+  }
+  
+  .navContent h1 {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 1.5rem;
+    color: white;
+  }
+  
+  .navContent ul {
+    list-style: none;
+    display: flex;
+ 
+    padding: 0;
+    margin: 0;
+  }
+
+  
+  .navContent li {
+    display: flex;
+    align-items: center;
+    margin-right: 50px;
+    margin-left: 50px;
+  }
+  
+  .navContent img {
+    height: 30px;
+    width: auto;
+  }
+
+.balladeContent {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap: 20px
+}
+
+  .balladeContent img {
+   
+    width: 100%;
+    border: solid black 1px;
+    margin-right: 15px;
+    margin-left: 15px;
+  }
