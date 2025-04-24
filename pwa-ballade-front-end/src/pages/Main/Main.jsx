@@ -7,6 +7,12 @@ import banniereBallade from "../../assets/icons/banniere-ballade.jpg";
 import balladeSponsor from "../../assets/icons/ballade-sponsor.png";
 import balladeLogo from "../../assets/icons/ballade-logo.png";
 
+import book from "../../assets/icons/book.png";
+import facebook from "../../assets/icons/facebook.png";
+import instagram from "../../assets/icons/instagram.png";
+import youtube from "../../assets/icons/youtube.png";
+import music from "../../assets/icons/music.png";
+
 
 
 
@@ -15,22 +21,24 @@ import balladeLogo from "../../assets/icons/ballade-logo.png";
 
   return ( 
      <div> 
-      <nav className={styles.navContent}>
-       
+       <header className={styles.headerContent}>
+               
+               <ul>
+                  <li> <img className={styles.balladeLogo} src={balladeLogo} alt="Ballade logo"/> </li>
+                  <li className={styles.musicCard}>
+                      <h2 className={styles.cardTitle}>Découvrez nos morceaux</h2>
+                         <img className={styles.musicIcone} src={music} alt="music icon" />
+                   </li>
+               </ul>
 
-        <ul> 
-            <li> <img src={home} alt="home icon"/> </li>
-            <li> <img src={globe} alt="globe icon"/> </li>
-            <li> <img src={login} alt="login icon"/> </li>
-        </ul>
-      
-      </nav>
+
+       </header>
      
      <main>
 
       <div className={styles.balladeContent}>
-            <img src={banniereBallade} alt="" />
-            <img src={balladeSponsor} alt="" />
+            <img src={banniereBallade} alt="banniere Ballade" />
+            <img src={balladeSponsor} alt="sponsors Ballade" />
 
 
 
@@ -38,6 +46,16 @@ import balladeLogo from "../../assets/icons/ballade-logo.png";
       
 
      </main>
+
+     <footer className={styles.footerContent}>
+      <ul className={styles.iconsContent}>
+            <li>< img src={youtube} alt="youtube icon" /> </li>
+            <li> <img src={facebook} alt="facebook icon" /> </li>
+            <li> <img src={instagram} alt="instagram icon" /> </li>
+            <li> <img src={book} alt="book icon" /> </li>
+      </ul>
+
+     </footer>
     
      </div>
      )

@@ -1,56 +1,113 @@
-.navContent {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: fixed;
-     bottom: 0; 
-     left: 0;
-     width: 100%;
-    padding: 1rem;
-    background-color: #1A4484;
-  
-  }
-  
-  .navContent h1 {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    font-size: 1.5rem;
-    color: white;
-  }
-  
-  .navContent ul {
-    list-style: none;
-    display: flex;
- 
-    padding: 0;
-    margin: 0;
-  }
-
-  
-  .navContent li {
-    display: flex;
-    align-items: center;
-    margin-right: 50px;
-    margin-left: 50px;
-  }
-  
-  .navContent img {
-    height: 30px;
-    width: auto;
-  }
-
-.balladeContent {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    gap: 20px
+.headerContent ul {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  gap: 0.5rem;
 }
 
-  .balladeContent img {
-   
-    width: 100%;
-    border: solid black 1px;
-    margin-right: 15px;
-    margin-left: 15px;
-  }
+.balladeLogo {
+  height: 80px; 
+  width: auto;
+}
+
+.musicCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #f0f4f8;
+  padding: 1rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: fit-content;
+  margin: 1rem auto;
+  text-align: center;
+  border : solid #1A4484 1px;
+  cursor: pointer;
+}
+
+.musicCard:hover {
+  background-color : #c6d9f8 ;
+
+}
+.cardTitle {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+  color: #1A4484;
+  
+  
+}
+
+.cardTitle:hover {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+  color: black;
+  
+}
+
+.musicIcone {
+  height: 40px;
+  width: auto;
+ 
+}
+
+
+
+
+
+
+
+
+.balladeContent {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  gap: 2%;
+  padding: 2% 5%;
+  margin-top: 20px;
+}
+
+.balladeContent img {
+  width: 100%;
+  border: solid black 1px;
+  margin: 0 auto; /* centrage automatique horizontal */
+}
+
+
+.footerContent {
+  position: fixed;
+  bottom: 60px; /* Laisse un espace au-dessus de la navbar (ajuste si ta navbar est plus grande) */
+  left: 0;
+  width: 100%;
+ 
+  padding: 1rem 0;
+  display: flex;
+  justify-content: center;
+
+  z-index: 90; /* Légèrement en dessous de la navbar */
+}
+
+.iconsContent {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.iconsContent li img {
+  height: 40px;
+  width: 40px;
+  object-fit: contain;
+  border: solid 1px gray;
+  padding: 3px;
+  border-radius: 7px;
+  transition: 0.6s;
+  cursor: pointer;
+}
+.iconsContent li img:hover {
+  background-color: rgb(185, 209, 240);
+  transform: translateY(-8px)
+}
