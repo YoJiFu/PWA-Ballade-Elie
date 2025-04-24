@@ -17,16 +17,18 @@ import music from "../../assets/icons/music.png";
 
 
 
- function Main() {
+ function HomePage() {
 
   return ( 
-     <div> 
+      <div className={styles.pageWrapper}> 
        <header className={styles.headerContent}>
+                 
+                 <div className={styles.loginIcon}> <img src={login} alt="login icon" /></div>
                
                <ul>
                   <li> <img className={styles.balladeLogo} src={balladeLogo} alt="Ballade logo"/> </li>
                   <li className={styles.musicCard}>
-                      <h2 className={styles.cardTitle}>Découvrez nos morceaux</h2>
+                      <h2 className={styles.cardTitle}>Liste des morceaux</h2>
                          <img className={styles.musicIcone} src={music} alt="music icon" />
                    </li>
                </ul>
@@ -62,4 +64,4 @@ import music from "../../assets/icons/music.png";
  }
 
 
- export default Main 
+ export default HomePage 
