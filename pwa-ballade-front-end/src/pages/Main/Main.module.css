@@ -8,16 +8,11 @@
   box-sizing: border-box;
 }
 
-body, html, #root {
-  height: 100%;
-  margin: 0;
-  padding: 0;
+body, html {
+  width: 100%;
+  overflow-x: hidden;
 }
 
-#root {
-  display: flex;
-  flex-direction: column;
-}
 
 /* ---------------------------- 
    PAGE WRAPPER (structure générale)
@@ -50,6 +45,11 @@ body, html, #root {
   gap: 0.5rem;
 }
 
+
+.balladeTitle {
+  color: #1A4484;
+}
+
 /* ---------------------------- 
    LOGIN ICON
 ---------------------------- */
@@ -79,7 +79,7 @@ body, html, #root {
   margin-top: 20px;
 }
 
-.musicCard {
+.musicCard, .mapCard {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -87,7 +87,7 @@ body, html, #root {
   padding: 1rem;
   border-radius: 12px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  width: fit-content;
+  width:  100%;
   margin: 1rem auto;
   text-align: center;
   border: solid #1A4484 1px;
@@ -98,20 +98,20 @@ body, html, #root {
   background-color: #c6d9f8;
 }
 
-.cardTitle {
-  font-size: 1.2rem;
+.cardTitle, .mapTitle {
+  
   margin-bottom: 0.5rem;
   color: black;
 }
 
 .cardTitle:hover {
-  font-size: 1.2rem;
+  font-size: 1.5rem;
   margin-bottom: 0.5rem;
   color: black;
 }
 
-.musicIcone {
-  height: 40px;
+.musicIcon, .mapIcon {
+  height: 80px;
   width: auto;
 }
 
@@ -146,6 +146,8 @@ body, html, #root {
   padding: 1rem 0;
   display: flex;
   justify-content: center;
+  flex-direction: column; /* Important pour empiler les enfants verticalement */
+  align-items: center; /* Centre horizontalement */
   background-color: #1A4484;
   z-index: 90;
 }
@@ -173,4 +175,48 @@ body, html, #root {
 .iconsContent li img:hover {
   background-color: rgb(185, 209, 240);
   transform: translateY(-8px);
+}
+
+.copyrightBallade {
+  color: white;
+  font-size: 1.3rem;
+  font-weight: bold;
+  margin-top: 0.5rem;
+}
+
+.versionNumber {
+  color: white;
+  font-size: 1rem;
+  position: absolute;
+  right: 1rem;
+  bottom: 0.8rem;
+}
+
+
+@media (min-width: 1024px) {
+
+  .loginIcon img {
+    height: 80px;
+  }
+ 
+  .balladeLogo {
+    height: 200px;
+    
+  }
+
+  .cardTitle, .mapTitle {
+    font-size: 3rem;
+  }
+
+  .musicIcone {
+    height: 100px;
+  }
+  .iconsContent li img {
+    height: 60px;
+    width: 60px;
+  }
+
+  .copyrightBallde {
+    font-size: 1.8rem;
+  }
 }
