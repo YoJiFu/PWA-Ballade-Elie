@@ -17,28 +17,33 @@ import map from "../../assets/icons/map.png";
 function HomePage() {
   return (
     <div className={styles.pageWrapper}>
-      <header className={styles.headerContent}>
-        <div className={styles.loginIcon}>
-          <img src={login} alt="login icon" />
-        </div>
+     <header className={styles.headerContent}>
+  <div className={styles.loginIcon}>
+    <img src={login} alt="login icon" />
+  </div>
 
-        <ul>
-          <li>
-            <img className={styles.balladeLogo} src={balladeLogo} alt="Ballade logo" />
-          </li>
-          <h1 className={styles.balladeTitle}>Association Ballade</h1>
+  <ul>
+    <li>
+      <img className={styles.balladeLogo} src={balladeLogo} alt="Ballade logo" />
+    </li>
+    <h1 className={styles.balladeTitle}>Association Ballade</h1>
 
-          <li className={styles.musicCard}>
-            <h2 className={styles.cardTitle}>Morceaux</h2>
-            <img className={styles.musicIcon} src={music} alt="music icon" />
-          </li>
+    {/* NOUVEAU BLOC SPECIAL POUR LES DEUX CARDS */}
+    <div className={styles.cardsContainer}>
+      <li className={styles.musicCard}>
+        <h2 className={styles.cardTitle}>Liste des morceaux</h2>
+        <img className={styles.musicIcon} src={music} alt="music icon" />
+      </li>
 
-          <li className={styles.mapCard}>
-            <h2 className={styles.mapTitle}>Carte des morceaux</h2>
-            <img className={styles.mapIcon} src={map} alt="map icon" />
-          </li>
-        </ul>
-      </header>
+      <li className={styles.mapCard}>
+        <h2 className={styles.mapTitle}>Carte des morceaux</h2>
+        <img className={styles.mapIcon} src={map} alt="map icon" />
+      </li>
+    </div>
+    {/* FIN NOUVEAU BLOC */}
+  </ul>
+</header>
+
 
       <main>
         <div className={styles.balladeContent}>

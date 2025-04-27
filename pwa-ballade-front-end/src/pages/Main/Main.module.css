@@ -1,6 +1,6 @@
-/* ---------------------------- 
+/* ============================  
    GLOBAL STYLES
----------------------------- */
+============================ */
 
 * {
   margin: 0;
@@ -8,31 +8,31 @@
   box-sizing: border-box;
 }
 
-body, html {
+html, body {
   width: 100%;
   overflow-x: hidden;
 }
 
-
-/* ---------------------------- 
-   PAGE WRAPPER (structure générale)
----------------------------- */
+/* ============================  
+   PAGE WRAPPER
+============================ */
 
 .pageWrapper {
   display: flex;
   flex-direction: column;
-  min-height: 100vh; /* prend toute la hauteur de l'écran */
+  min-height: 100vh;
+  padding-bottom: 150px;
 }
 
-/* ---------------------------- 
-   HEADER STYLES
----------------------------- */
+/* ============================  
+   HEADER
+============================ */
 
 .headerContent {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-top: 0; /* Enlève le padding du haut, le login prendra l'espace en haut */
+  padding-top: 0;
 }
 
 .headerContent ul {
@@ -45,38 +45,41 @@ body, html {
   gap: 0.5rem;
 }
 
+.loginIcon {
+  width: 100vw;
+  background-color: #1A4484;
+  display: flex;
+  justify-content: center;
+  padding: 1rem 0;
+  margin-top: 0;
+}
+
+.loginIcon img {
+  height: 40px;
+  width: auto;
+}
+
+.balladeLogo {
+  height: 80px;
+  width: auto;
+  margin-top: 20px;
+}
 
 .balladeTitle {
   color: #1A4484;
 }
 
-/* ---------------------------- 
-   LOGIN ICON
----------------------------- */
+/* ============================  
+   CARDS (Music & Map)
+============================ */
 
-.loginIcon {
-  width: 100vw; /* prend toute la largeur de la page */
-  background-color: #1A4484; /* couleur de fond souhaitée */
+.cardsContainer {
   display: flex;
+  flex-direction: row;
   justify-content: center;
-  padding: 1rem 0;
-  box-sizing: border-box;
-  margin-top: 0; /* enleve la marge pour que le fond commence en haut */
-}
-
-.loginIcon img {
-  height: 40px; /* ajuster selon le besoin */
-  width: auto;
-}
-
-/* ---------------------------- 
-   BALLADE LOGO & MUSIC CARD
----------------------------- */
-
-.balladeLogo {
-  height: 80px; 
-  width: auto;
-  margin-top: 20px;
+  align-items: stretch;
+  gap: 1rem;
+  margin-top: 1rem;
 }
 
 .musicCard, .mapCard {
@@ -87,10 +90,10 @@ body, html {
   padding: 1rem;
   border-radius: 12px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  width:  100%;
+  width: 100%;
   margin: 1rem auto;
   text-align: center;
-  border: solid #1A4484 1px;
+  border: 1px solid #1A4484;
   cursor: pointer;
 }
 
@@ -99,15 +102,13 @@ body, html {
 }
 
 .cardTitle, .mapTitle {
-  
+ 
   margin-bottom: 0.5rem;
   color: black;
 }
 
 .cardTitle:hover {
   font-size: 1.5rem;
-  margin-bottom: 0.5rem;
-  color: black;
 }
 
 .musicIcon, .mapIcon {
@@ -115,14 +116,17 @@ body, html {
   width: auto;
 }
 
-/* ---------------------------- 
-   MAIN CONTENT (for Ballade and other content)
----------------------------- */
+/* ============================  
+   MAIN CONTENT
+============================ */
+main {
+  padding-bottom: 150px; /* Ajuste la valeur selon la hauteur de ton footer */
+}
 
 .balladeContent {
   display: flex;
-  justify-content: center;
   flex-direction: column;
+  justify-content: center;
   gap: 2%;
   padding: 2% 5%;
   margin-top: 20px;
@@ -130,24 +134,23 @@ body, html {
 
 .balladeContent img {
   width: 100%;
-  border: solid black 1px;
-  margin: 0 auto; /* centrage automatique horizontal */
+  border: 1px solid black;
+  margin: 0 auto;
 }
 
-/* ---------------------------- 
-   FOOTER STYLES
----------------------------- */
+/* ============================  
+   FOOTER
+============================ */
 
 .footerContent {
   position: fixed;
-  bottom: 0; /* Reste fixe en bas de la page */
+  bottom: 0;
   left: 0;
   width: 100%;
   padding: 1rem 0;
   display: flex;
-  justify-content: center;
-  flex-direction: column; /* Important pour empiler les enfants verticalement */
-  align-items: center; /* Centre horizontalement */
+  flex-direction: column;
+  align-items: center;
   background-color: #1A4484;
   z-index: 90;
 }
@@ -164,9 +167,9 @@ body, html {
   height: 40px;
   width: 40px;
   object-fit: contain;
-  border: solid 1px rgb(0, 0, 0);
   background-color: white;
   padding: 3px;
+  border: 1px solid black;
   border-radius: 7px;
   transition: 0.6s;
   cursor: pointer;
@@ -192,31 +195,43 @@ body, html {
   bottom: 0.8rem;
 }
 
+/* ============================  
+   MEDIA QUERIES
+============================ */
+
+@media (max-width: 768px) {
+  .musicCard, .mapCard {
+    width: 40%;
+  }
+
+  .cardsContainer {
+    gap: 1rem;
+  }
+}
 
 @media (min-width: 1024px) {
-
   .loginIcon img {
     height: 80px;
   }
- 
+
   .balladeLogo {
     height: 200px;
-    
   }
 
   .cardTitle, .mapTitle {
     font-size: 3rem;
   }
 
-  .musicIcone {
+  .musicIcon, .mapIcon {
     height: 100px;
   }
+
   .iconsContent li img {
     height: 60px;
     width: 60px;
   }
 
-  .copyrightBallde {
+  .copyrightBallade {
     font-size: 1.8rem;
   }
 }
