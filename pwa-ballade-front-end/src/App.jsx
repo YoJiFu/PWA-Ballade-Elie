@@ -1,5 +1,6 @@
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import './App.css';
+
 import Nav from './components/Nav/Nav'; // Vérifie que ce fichier existe bien
 import HomePage from './pages/Main/Main';
 import SongList from './pages/SongList/SongList'; // Vérifie que ce fichier existe bien

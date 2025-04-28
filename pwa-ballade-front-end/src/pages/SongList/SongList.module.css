@@ -1,15 +1,52 @@
-
-
 .pageWrapper {
+    padding: 20px;
     display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh; /* Prend toute la hauteur de la fenêtre */
-    text-align: center;
+    flex-direction: column;
+    align-items: center; /* Centre tout */
   }
   
-  h1 {
+  .pageTitle {
+    text-align: center;
     font-size: 2rem;
-    color: #333; /* Tu peux ajuster la couleur du texte */
+    font-weight: 500;
+    margin-bottom: 24px;
+  }
+  
+  .songCard {
+    width: 90%;
+    max-width: 600px;
+    margin: 0 auto 16px auto; /* Centre la card */
+    padding: 16px;
+    border: 1px solid #1A4484 ;
+    border-radius: 8px;
+    background-color: #8a83836c;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .cardHeader {
+    display: flex;
+    align-items: center;
+    margin-bottom: 12px;
+  }
+  
+  .icon {
+    width: 40px;
+    height: 40px;
+    margin-right: 12px;
+  }
+  
+  .title {
+    font-size: 1.5rem;
+    font-weight: 500;
+    margin: 0;
+  }
+  
+  .cardBody {
+    padding-left: 52px; /* Décalage pour aligner sous le titre */
+  }
+  
+  .cardBody p {
+    margin: 4px 0;
+    font-size: 1rem;
   }
   

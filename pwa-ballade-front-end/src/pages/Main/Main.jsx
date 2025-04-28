@@ -12,7 +12,7 @@ import facebook from "../../assets/icons/facebook.png";
 import instagram from "../../assets/icons/instagram.png";
 import youtube from "../../assets/icons/youtube.png";
 import music from "../../assets/icons/music.png";
-import map from "../../assets/icons/map.png";
+import map from "../../assets/icons/map-location.png";
 
 function HomePage() {
   return (
@@ -26,6 +26,7 @@ function HomePage() {
           <li>
             <img className={styles.balladeLogo} src={balladeLogo} alt="Ballade logo" />
           </li>
+          <h2 className={styles.mobileTitle}> Application Mobile</h2>
           <h1 className={styles.balladeTitle}>Association Ballade</h1>
 
           {/* NOUVEAU BLOC SPECIAL POUR LES DEUX CARDS */}
