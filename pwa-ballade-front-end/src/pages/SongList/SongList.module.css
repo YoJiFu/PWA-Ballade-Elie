@@ -1,0 +1,15 @@
+
+
+.pageWrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Prend toute la hauteur de la fenêtre */
+    text-align: center;
+  }
+  
+  h1 {
+    font-size: 2rem;
+    color: #333; /* Tu peux ajuster la couleur du texte */
+  }
+  

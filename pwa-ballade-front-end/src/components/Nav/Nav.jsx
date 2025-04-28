@@ -1,5 +1,7 @@
-
-
+import home from "../../assets/icons/home-icon.png";
+import login from "../../assets/icons/login-icon.png";
+import globe from "../../assets/icons/globe.png";
+import styles from './Nav.module.css'
 
 
  function Nav(){

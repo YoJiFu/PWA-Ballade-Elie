@@ -1,19 +1,30 @@
-import { useState } from 'react'
-
-
-
-import './App.css'
-import HomePage from './pages/Main/Main'
+import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
+import './App.css';
+import Nav from './components/Nav/Nav'; // Vérifie que ce fichier existe bien
+import HomePage from './pages/Main/Main';
+import SongList from './pages/SongList/SongList'; // Vérifie que ce fichier existe bien
 
 function App() {
- 
   return (
-    <>
-    <div>
-      <HomePage/>
-    </div>
-    </>
-  )
+    <Router>
+      <AppContent />
+    </Router>
+  );
 }
 
-export default App
+function AppContent() {
+  const location = useLocation();
+  const isHomePage = location.pathname === "/";
+
+  return (
+    <div>
+      {!isHomePage && <Nav />}  {/* La navbar n'apparaît pas sur la page d'accueil */}
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/song-list" element={<SongList />} />
+      </Routes>
+    </div>
+  );
+}
+
+export default App;

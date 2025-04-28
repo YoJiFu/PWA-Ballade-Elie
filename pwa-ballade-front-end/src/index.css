@@ -13,15 +13,21 @@ body, html, #root {
 
 }
 
+
 #root {
   display: flex;
   flex-direction: column;
 }
 
-
-
-
-
+@font-face {
+  font-family: 'Sue Ellen Francisco';
+  src: url('./assets/fonts/SueEllenFrancisco.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+body {
+  font-family: 'Sue Ellen Francisco', sans-serif;
+}
 
   
 
