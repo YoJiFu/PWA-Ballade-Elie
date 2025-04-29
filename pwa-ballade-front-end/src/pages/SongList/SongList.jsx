@@ -11,10 +11,11 @@ function SongList() {
           <h2 className={styles.title}>{entry.title}</h2>
         </div>
         <div className={styles.cardBody}>
-          <p><strong>Origine :</strong> {entry.origin}</p>
-          <p><strong>Thème :</strong> {entry.theme}</p>
-          <p><strong>Bénéficiaires :</strong> {entry.beneficiaries}</p>
-          <p><strong>Difficulté :</strong> {entry.difficulty}</p>
+        <p>{entry.origin}</p>
+        <p>{entry.theme}</p>
+        <p>{entry.beneficiaries}</p>
+        <p>{entry.difficulty}</p>
+
         </div>
       </div>
     );

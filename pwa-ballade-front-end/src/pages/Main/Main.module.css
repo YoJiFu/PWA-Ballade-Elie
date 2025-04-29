@@ -21,7 +21,9 @@ html, body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  padding-bottom: 150px;
+  padding: 0 8px; /* réduit encore plus qu’avant */
+
+ 
 }
 
 /* ============================  
@@ -66,8 +68,11 @@ html, body {
 }
 
 .balladeTitle, .mobileTitle {
-  font-size: 2rem;
+  font-size: 1.5rem;
   font-weight: 400;
+  font-family: 'Noto Sans', sans-serif;
+
+  text-align: center;
   color: #1A4484;
 }
  
@@ -94,6 +99,8 @@ html, body {
   border-radius: 12px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   width: 100%;
+  padding-left: 0;
+  padding-right: 0;
   margin: 1rem auto;
   text-align: center;
   border: 1px solid #1A4484;
@@ -108,7 +115,7 @@ html, body {
  
   margin-bottom: 0.5rem;
   color: black;
-  font-size : 1.3rem;
+  font-size : 1.5rem;
   font-weight: 500;
 }
 
@@ -117,7 +124,7 @@ html, body {
 }
 
 .musicIcon, .mapIcon {
-  height: 80px;
+  height: 40px;
   width: auto;
 }
 
@@ -131,6 +138,7 @@ main {
 .balladeContent {
   display: flex;
   flex-direction: column;
+  
   justify-content: center;
   gap: 2%;
   padding: 2% 5%;
@@ -139,6 +147,7 @@ main {
 
 .balladeContent img {
   width: 100%;
+  line-height: 1.2;
   border: 1px solid black;
   margin: 0 auto;
 }
@@ -189,6 +198,7 @@ main {
   color: white;
   font-size: 1.3rem;
   font-weight: 100;
+  font-family: 'Roboto', sans-serif;
   margin-top: 0.5rem;
 }
 
