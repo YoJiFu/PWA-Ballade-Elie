@@ -1,20 +1,19 @@
-import musicIcon from '../../assets/icons/music.png';
-import styles from './SongList.module.css'; // <-- à ajouter
+import React from "react";
+import { useTranslation } from "react-i18next";
+import styles from "./SongCard.module.css"; // ton style ici
 
-function SongCard(props) {
+function SongCard({ song }) {
+  const { t } = useTranslation();
+
   return (
-    <article className={styles.songCard}>
-      <div className={styles.cardContent}>
-        <img src={musicIcon} alt="Icône de musique" className={styles.musicIcon} />
-        <div className={styles.textContent}>
-          <h2 className={styles.title}>{props.title}</h2>
-          <p><strong>Origine :</strong> {props.origin}</p>
-          <p><strong>Thème :</strong> {props.theme}</p>
-          <p><strong>Bénéficiaires :</strong> {props.beneficiaries}</p>
-          <p><strong>Difficulté :</strong> {props.difficulty}</p>
-        </div>
-      </div>
-    </article>
+    <div className={styles.card}>
+      <h3>{song.title}</h3>
+      <img src={song.musicIcon} alt="Music Icon" />
+      <p><strong>{t("origin")}:</strong> {t(song.origin)}</p>
+      <p><strong>{t("theme")}:</strong> {t(song.theme)}</p>
+      <p><strong>{t("beneficiaries")}:</strong> {t(song.beneficiaries)}</p>
+      <p><strong>{t("difficulty")}:</strong> {t(song.difficulty)}</p>
+    </div>
   );
 }
 

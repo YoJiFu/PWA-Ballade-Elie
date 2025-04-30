@@ -30,6 +30,29 @@ html, body {
    HEADER
 ============================ */
 
+.languageToggle {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  display: flex;
+  gap: 8px;
+  z-index: 100;
+}
+
+.languageToggle img {
+  width: 32px;
+  height: auto;
+  border-radius: 4px;
+  border: 1px solid #1A4484;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.languageToggle img:hover {
+  transform: scale(1.1);
+}
+
+
 .headerContent {
   display: flex;
   flex-direction: column;
@@ -86,7 +109,8 @@ html, body {
   flex-direction: row;
   justify-content: center;
   align-items: stretch;
-  gap: 1rem;
+
+  gap: 0.5rem;
   margin-top: 1rem;
 }
 
@@ -94,14 +118,13 @@ html, body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   background-color: #7ED957;
   padding: 1rem;
   border-radius: 12px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  width: 100%;
-  padding-left: 0;
-  padding-right: 0;
-  margin: 1rem auto;
+  width: 45%;
+  min-height: 180px;
   text-align: center;
   border: 1px solid #1A4484;
   cursor: pointer;
@@ -110,18 +133,26 @@ html, body {
 .musicCard:hover {
   background-color: #c6d9f8;
 }
+.mapCard:hover {
+  background-color: #c6d9f8;
+}
 
 .cardTitle, .mapTitle {
  
   margin-bottom: 0.5rem;
   color: black;
-  font-size : 1.5rem;
+  font-size : 2rem;
   font-weight: 500;
+  text-align: center;
+  white-space: normal;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  max-width: 100%;
 }
 
-.cardTitle:hover {
-  font-size: 1.5rem;
-}
+
 
 .musicIcon, .mapIcon {
   height: 40px;
@@ -215,12 +246,25 @@ main {
 ============================ */
 
 @media (max-width: 768px) {
-  .musicCard, .mapCard {
-    width: 40%;
+  .cardsContainer {
+    justify-content: center;
+    gap: 0.5rem;
   }
 
-  .cardsContainer {
-    gap: 1rem;
+  .musicCard, .mapCard {
+    width: 45%;
+    min-width: 140px;
+    margin: 0;
+  }
+
+  .cardTitle, .mapTitle {
+    font-size: 2rem;
+    line-height: 1.2;
+    word-wrap: break-word;
+  }
+
+  .musicIcon, .mapIcon {
+    height: 60px;
   }
 }
 
