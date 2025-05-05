@@ -1,4 +1,5 @@
 import styles from "./Main.module.css";
+import { Link } from "react-router-dom";
 
 import { useTranslation } from "react-i18next";
 import i18n from "../../i18n"; // à créer si pas encore fait
@@ -51,10 +52,10 @@ function HomePage() {
           <h1 className={styles.balladeTitle}>{t("association")}</h1>
 
           <div className={styles.cardsContainer}>
-            <li className={styles.musicCard}>
-              <h2 className={styles.cardTitle}>{t("songList")}</h2>
-              <img className={styles.musicIcon} src={music} alt="music icon" />
-            </li>
+          <Link to="/song-list" className={styles.musicCard}>
+  <h2 className={styles.cardTitle}>{t("songList")}</h2>
+  <img className={styles.musicIcon} src={music} alt="music icon" />
+</Link>
 
             <li className={styles.mapCard}>
               <h2 className={styles.mapTitle}>{t("songMap")}</h2>

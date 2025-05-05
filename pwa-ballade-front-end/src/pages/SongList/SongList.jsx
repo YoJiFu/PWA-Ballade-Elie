@@ -1,6 +1,7 @@
 import songList from "../../data/SongList.json";
+import { Link } from "react-router-dom";
 import styles from "./SongList.module.css";
-import music from "../../assets/icons/music.png";
+import arrow from "../../assets/icons/arrow.svg";
 import { useTranslation } from "react-i18next";
 import i18n from "../../i18n";
 
@@ -11,22 +12,11 @@ function SongList() {
     i18n.changeLanguage(lng);
   };
 
-  const entryElements = songList.map((entry) => {
-    return (
-      <div key={entry.id} className={styles.songCard}>
-        <div className={styles.cardHeader}>
-          <img className={styles.icon} src={music} alt="Music icon" />
-          <h2 className={styles.title}>{entry.title}</h2>
-        </div>
-        <div className={styles.cardBody}>
-        <p>{t(entry.origin)}</p>
-        <p>{t(entry.theme)}</p>
-        <p>{t(entry.beneficiaries)}</p>
-        <p>{t(entry.difficulty)}</p>
-        </div>
-      </div>
-    );
-  });
+  const entryElements = songList.map((entry) => (
+    <p key={entry.id} className={styles.songTitle}>
+      {entry.title}
+    </p>
+  ));
 
   return (
     <div className={styles.pageWrapper}>
@@ -43,8 +33,12 @@ function SongList() {
         />
       </div>
 
+      <Link to="/" className={styles.backArrow}>
+        <img src={arrow} alt="Back arrow" />
+      </Link>
+
       <h1 className={styles.pageTitle}>{t("songList")}</h1>
-      {entryElements}
+      <div>{entryElements}</div>
     </div>
   );
 }

@@ -12,24 +12,14 @@
     margin-bottom: 24px;
   }
   
-  .songCard {
-    width: 90%;
-    max-width: 600px;
-    margin: 0 auto 16px auto; /* Centre la card */
-    padding: 16px;
-    border: 1px solid #1A4484 ;
-    border-radius: 8px;
-    background-color: #8a83836c;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    transition: 0.4s;
+  .songTitle {
+    font-size: 1rem;
+    margin-bottom: 5px;
+    text-align: center;
+    font-weight: 500;
+    font-size: 1.6rem;
   }
-
-  .songCard:hover  {
-    background: white;
-    color: #1A4484;
-    transform: translateY(-5px)
   
-  }
   
   .cardHeader {
     display: flex;
@@ -77,4 +67,16 @@
   .languageToggle img:hover {
     transform: scale(1.1);
   }
+
+
+  .backArrow img {
+    position: fixed; /* toujours visible même en scrollant */
+  top: 1rem;
+  left: 1rem;
+  width: 50px;      /* taille raisonnable */
+  height: 50px;     /* pour garder les proportions */
+  cursor: pointer;
+  z-index: 10;      /* pour s'assurer qu'elle passe au-dessus du reste */
+  }
+  
   
