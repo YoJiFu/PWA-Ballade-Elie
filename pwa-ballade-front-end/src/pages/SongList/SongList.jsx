@@ -1,4 +1,5 @@
-import songList from "../../data/SongList.json";
+import { useEffect, useState } from "react";
+import { supabase } from "../../supabase-client";
 import { Link } from "react-router-dom";
 import styles from "./SongList.module.css";
 import arrow from "../../assets/icons/arrow.svg";
@@ -7,13 +8,27 @@ import i18n from "../../i18n";
 
 function SongList() {
   const { t } = useTranslation();
+  const [songs, setSongs] = useState([]);
 
   const changeLanguage = (lng) => {
     i18n.changeLanguage(lng);
   };
 
-  const entryElements = songList.map((entry) => (
-    <p key={entry.id} className={styles.songTitle}>
+  useEffect(() => {
+    const fetchSongs = async () => {
+      const { data, error } = await supabase.from("song").select("*");
+      if (error) {
+        console.error("Erreur de récupération :", error.message);
+      } else {
+        setSongs(data);
+      }
+    };
+
+    fetchSongs();
+  }, []);
+
+  const entryElements = songs.map((entry) => (
+    <p key={entry.song_id} className={styles.songTitle}>
       {entry.title}
     </p>
   ));
