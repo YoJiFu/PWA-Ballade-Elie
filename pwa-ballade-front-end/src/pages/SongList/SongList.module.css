@@ -1,82 +1,113 @@
+/* ========== GLOBAL ========== */
 .pageWrapper {
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center; /* Centre tout */
-  }
-  
-  .pageTitle {
-    text-align: center;
-    font-size: 2rem;
-    font-weight: 500;
-    margin-bottom: 24px;
-  }
-  
-  .songTitle {
-    font-size: 1rem;
-    margin-bottom: 5px;
-    text-align: center;
-    font-weight: 500;
-    font-size: 1.6rem;
-  }
-  
-  
-  .cardHeader {
-    display: flex;
-    align-items: center;
-    margin-bottom: 12px;
-  }
-  
-  .icon {
-    width: 60px;
-    height: 60px;
-    margin-right: 12px;
-  }
-  
-  .title {
-    font-size: 2rem;
-    font-weight: 700;
-    margin: 0;
-  }
-  
-  .cardBody {
-    padding-left: 52px; /* Décalage pour aligner sous le titre */
-  }
-  
-  .cardBody p {
-    margin: 4px 0;
-    font-size: 1.6rem;
-  }
-  
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
-  .languageToggle {
-    position: absolute;
-    top: 16px;
-    right: 16px;
-    display: flex;
-    gap: 10px;
-    cursor: pointer;
-  }
-  
-  .languageToggle img {
-    width: 32px;
-    height: auto;
-    transition: transform 0.2s ease;
-  }
-  
-  .languageToggle img:hover {
-    transform: scale(1.1);
-  }
+.pageTitle {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 500;
+  margin-bottom: 24px;
+}
 
+.songTitle {
+  font-size: 1.6rem;
+  font-weight: 500;
+  text-align: center;
+  margin-bottom: 5px;
+}
 
-  .backArrow img {
-    position: fixed; /* toujours visible même en scrollant */
+/* ========== LANGUAGES ========== */
+.languageToggle {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  display: flex;
+  gap: 10px;
+  cursor: pointer;
+}
+
+.languageToggle img {
+  width: 32px;
+  height: auto;
+  transition: transform 0.2s ease;
+}
+
+.languageToggle img:hover {
+  transform: scale(1.1);
+}
+
+/* ========== BACK ARROW ========== */
+.backArrow img {
+  position: fixed;
   top: 1rem;
   left: 1rem;
-  width: 50px;      /* taille raisonnable */
-  height: 50px;     /* pour garder les proportions */
+  width: 50px;
+  height: 50px;
   cursor: pointer;
-  z-index: 10;      /* pour s'assurer qu'elle passe au-dessus du reste */
+  z-index: 10;
+}
+
+/* ========== FILTERS ========== */
+.filterContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  margin-bottom: 24px;
+  width: 100%;
+  max-width: 500px;
+  padding: 0 16px;
+}
+
+/* Ajout de marge manuelle pour garantir le spacing */
+.filterContainer select,
+.filterContainer .resetButton {
+  margin-bottom: 12px;
+}
+
+.filterContainer select {
+  padding: 10px;
+  font-size: 1rem;
+  border-radius: 6px;
+  border: 1px solid #000;
+  background-color: #f9f9f9;
+}
+
+/* Bouton de reset */
+.resetButton {
+  padding: 10px;
+  font-size: 1rem;
+  margin-left: 10px;
+  background-color: #ffffff;
+  border: 1px solid #000000;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.resetButton:hover {
+  background-color: #ccc;
+}
+
+/* ========== RESPONSIVE TABLETTE ========== */
+@media (min-width: 768px) {
+  .filterContainer {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 12px; /* fonctionne bien en row */
   }
-  
-  
+
+  .filterContainer select {
+    flex: 1 1 45%;
+    margin-bottom: 0; /* annule la marge mobile */
+  }
+
+  .resetButton {
+    flex: 1 1 100%;
+    margin-bottom: 0;
+  }
+}
