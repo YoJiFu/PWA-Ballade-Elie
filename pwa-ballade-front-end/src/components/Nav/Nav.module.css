@@ -1,32 +1,14 @@
-.navContent {
-    display: flex;
-    justify-content: center; /* meilleure répartition entre h1 et ul */
-    align-items: center;
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    padding: 1% 3%; /* padding haut/bas à 1%, gauche/droite à 3% */
-    background-color: #1A4484;
+.Navbar {
+  display: flex;
+  margin-bottom: 15px;
+  .NavbarBrand {
+    width: 40px;
   }
-  
-  
-  
-  .navContent ul {
-    list-style: none;
-    display: flex;
-    padding: 0;
-    margin: 0;
-    gap: 2rem;
+  .NavbarTitle {
+    font-size: 1.2rem;
+    margin-left:5px;
   }
-  
-  .navContent li {
-    display: flex;
-    align-items: center;
-    margin: 0 ; /* marges horizontales entre chaque icône */
+  .NavBarSelect{
+    margin-bottom:0 !important;
   }
-  
-  .navContent img {
-    height: 30px;
-    width: auto;
-  }
+}

@@ -3,13 +3,13 @@ import { Link } from "react-router-dom";
 import styles from "./SongList.module.css";
 import arrow from "../../assets/icons/arrow.svg";
 import { useTranslation } from "react-i18next";
-import i18n from "../../i18n";
+//import i18n from "../../i18n";
 
 function SongList() {
   const { t } = useTranslation();
 
   const changeLanguage = (lng) => {
-    i18n.changeLanguage(lng);
+    //i18n.changeLanguage(lng);
   };
 
   const entryElements = songList.map((entry) => (

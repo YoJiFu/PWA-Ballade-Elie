@@ -1,24 +1,39 @@
-import home from "../../assets/icons/home-icon.png";
-import login from "../../assets/icons/login-icon.png";
-import globe from "../../assets/icons/globe.png";
-import styles from './Nav.module.css'
+import React, { Fragment } from "react";
+import { UserCircleIcon } from "@heroicons/react/24/outline";
+import { Navbar, NavbarBrand, FormGroup, Input } from "reactstrap";
+import style from "./Nav.module.css";
+import { useTranslation } from "react-i18next";
 
+const Nav = () => {
+  const { i18n } = useTranslation();
 
- function Nav(){
-    return(
-         <div>
-             <nav className={styles.navContent}>
-                   
-            
-                    <ul> 
-                        <li> <img src={home} alt="home icon"/> </li>
-                        <li> <img src={globe} alt="globe icon"/> </li>
-                        <li> <img src={login} alt="login icon"/> </li>
-                    </ul>
-                  
-                  </nav>
-         </div>
-    )
-}
+  const changeLanguage = (e) => {
+    const lng = e.target.value;
+    i18n.changeLanguage(lng);
+  };
+  return (
+    <Fragment>
+      <Navbar className={`${style.Navbar} mb-5`}>
+        <NavbarBrand href="/" className="d-flex align-items-center">
+          <UserCircleIcon className={style.NavbarBrand} />
+          <span className={style.NavbarTitle}>Elie Bel</span>
+        </NavbarBrand>
+        <div className="text-right">
+          <FormGroup className={style.NavBarSelect}>
+            <Input
+              id="exampleSelect"
+              name="select"
+              type="select"
+              onChange={changeLanguage}
+            >
+              <option value="fr">🇫🇷 FR </option>
+              <option value="en">🇺🇸 EN</option>
+            </Input>
+          </FormGroup>
+        </div>
+      </Navbar>
+    </Fragment>
+  );
+};
 
-export default Nav
+export default Nav;
