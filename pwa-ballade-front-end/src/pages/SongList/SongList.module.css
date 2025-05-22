@@ -62,52 +62,71 @@
   padding: 0 16px;
 }
 
-/* Ajout de marge manuelle pour garantir le spacing */
-.filterContainer select,
-.filterContainer .resetButton {
-  margin-bottom: 12px;
-}
-
-.filterContainer select {
-  padding: 10px;
+/* ✅ Style global des <select> */
+select {
+  padding: 12px;
   font-size: 1rem;
-  border-radius: 6px;
+  border-radius: 8px;
   border: 1px solid #000;
-  background-color: #f9f9f9;
+ 
+  background-color: #7ED957;
+  cursor: pointer;
+  margin: 5px;
+ 
+  min-height: 50px;
+  appearance: none; /* retire le style natif */
 }
 
 /* Bouton de reset */
 .resetButton {
-  padding: 10px;
-  font-size: 1rem;
-  margin-left: 10px;
+  padding: 14px;
+  font-size: 1.1rem;
   background-color: #ffffff;
   border: 1px solid #000000;
+  background-color: #1A4484;
+  color: white;
   border-radius: 6px;
   cursor: pointer;
   transition: background-color 0.2s ease;
+  margin-bottom: 12px;
 }
 
 .resetButton:hover {
   background-color: #ccc;
 }
 
-/* ========== RESPONSIVE TABLETTE ========== */
+/* ========== RESPONSIVE DESKTOP/TABLETTE ========== */
 @media (min-width: 768px) {
   .filterContainer {
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-between;
-    gap: 12px; /* fonctionne bien en row */
+    gap: 12px;
   }
 
-  .filterContainer select {
+  select {
     flex: 1 1 45%;
-    margin-bottom: 0; /* annule la marge mobile */
+    margin-bottom: 0;
   }
 
   .resetButton {
     flex: 1 1 100%;
     margin-bottom: 0;
+  }
+}
+
+/* ========== RESPONSIVE MOBILE ========== */
+@media (max-width: 767px) {
+  .filterContainer {
+    align-items: center;
+  }
+
+  select,
+  .resetButton {
+    display: block;
+    margin: 10px auto;
+    width: 90%;
+    padding: 14px;
+    max-width: 400px;
   }
 }

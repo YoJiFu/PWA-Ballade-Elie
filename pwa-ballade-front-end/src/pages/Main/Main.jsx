@@ -106,8 +106,8 @@ function HomePage() {
           </li>
         </ul>
 
-        <div className={styles.copyrightBallade}>© Association Ballade</div>
-        <div className={styles.versionNumber}>v0.1.0</div>
+        <div className={styles.copyrightBallade}>© 2025 Association Ballade</div>
+        <div className={styles.versionNumber}>v0.1</div>
       </footer>
     </div>
   );

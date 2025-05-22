@@ -56,6 +56,7 @@ function SongList() {
   });
 
   // 🔁 Fonction pour réinitialiser les filtres
+  
   const resetFilters = () => {
     setFilters({
       origin: "",
@@ -94,7 +95,7 @@ function SongList() {
             setFilters((prev) => ({ ...prev, origin: e.target.value }))
           }
         >
-          <option value="">Toutes les origines</option>
+          <option value=""> Origines</option>
           {Array.from(new Set(songs.map((s) => s.origin.geo_zone))).map((zone) => (
             <option key={zone} value={zone}>
               {zone}
@@ -108,7 +109,7 @@ function SongList() {
             setFilters((prev) => ({ ...prev, difficulty: e.target.value }))
           }
         >
-          <option value="">Toutes les difficultés</option>
+          <option value=""> Difficultés</option>
           {Array.from(new Set(songs.map((s) => s.difficulty_level.level_label))).map((label) => (
             <option key={label} value={label}>
               {label}
@@ -122,7 +123,7 @@ function SongList() {
             setFilters((prev) => ({ ...prev, beneficiaries: e.target.value }))
           }
         >
-          <option value="">Tous les bénéficiaires</option>
+          <option value="">Bénéficiaires</option>
           {Array.from(new Set(songs.map((s) => s.beneficiaries.benef_label))).map((label) => (
             <option key={label} value={label}>
               {label}
@@ -132,17 +133,23 @@ function SongList() {
 
         {/* 🔘 Bouton de réinitialisation */}
         <button className={styles.resetButton} onClick={resetFilters}>
-          Réinitialiser les filtres
+          Réinitialiser 
         </button>
       </div>
 
       {/* Liste des chansons */}
       <div>
-        {filteredSongs.map((entry) => (
-          <p key={entry.song_id} className={styles.songTitle}>
-            {entry.title}
-          </p>
-        ))}
+
+      {filteredSongs.map((entry) => (
+  <Link
+    to={`/song/${entry.song_id}`}
+    key={entry.song_id}
+    className={styles.songTitle}
+  >
+    {entry.title}
+  </Link>
+))}
+
       </div>
     </div>
   );
