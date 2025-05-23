@@ -8,35 +8,51 @@ function SongDetail() {
   const [song, setSong] = useState(null);
   const [audioUrl, setAudioUrl] = useState(null);
   const audioRef = useRef(null);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     const fetchSong = async () => {
-      const { data, error } = await supabase
-        .from("song")
-        .select("song_id, title, audio_path")
-        .eq("song_id", id)
-        .single();
+      try {
+        // 1. Récupérer les métadonnées de la chanson
+        const { data, error: songError } = await supabase
+          .from("song")
+          .select("song_id, title, audio_path")
+          .eq("song_id", id)
+          .single();
 
-      if (error) {
-        console.error("Erreur lors du fetch du morceau :", error.message);
-        return;
-      }
+        if (songError) throw songError;
+        if (!data) throw new Error("Aucune donnée trouvée");
+        
+        setSong(data);
 
-      setSong(data);
+        // 2. Vérifier le chemin audio
+        if (!data.audio_path) {
+          throw new Error("Chemin audio non spécifié");
+        }
 
-      if (data.audio_path) {
+        console.log("Chemin audio:", data.audio_path);
+
+        // 3. Deux méthodes pour récupérer l'audio :
+        
+        // Méthode A : URL publique (si le fichier est public)
+        // const publicUrl = supabase.storage
+        //   .from("ballade-data")
+        //   .getPublicUrl(data.audio_path);
+        // setAudioUrl(publicUrl.data.publicUrl);
+
+        // Méthode B : URL signée (pour les fichiers privés)
         const { data: signedData, error: signedError } = await supabase.storage
           .from("ballade-data")
-          .createSignedUrl(data.audio_path, 3600); // 1h
+          .createSignedUrl(data.audio_path, 3600); // 1h expiration
 
-        if (signedError) {
-          console.error("Erreur URL signée :", signedError.message);
-          setAudioUrl(null);
-        } else {
-          setAudioUrl(signedData.signedUrl);
-        }
-      } else {
-        setAudioUrl(null);
+        if (signedError) throw signedError;
+
+        console.log("URL signée générée:", signedData.signedUrl);
+        setAudioUrl(signedData.signedUrl);
+
+      } catch (err) {
+        console.error("Erreur:", err);
+        setError(err.message);
       }
     };
 
@@ -45,22 +61,29 @@ function SongDetail() {
 
   const handlePlay = () => {
     if (audioRef.current) {
-      audioRef.current.play();
+      audioRef.current.play().catch(e => console.error("Erreur de lecture:", e));
     }
   };
 
-  if (!song) return <p>Chargement...</p>;
+  if (!song) return <div>Chargement en cours...</div>;
 
   return (
     <div className={styles.pageWrapper}>
       <h2 className={styles.songTitle}>{song.title}</h2>
+
+      {error && <p className={styles.error}>Erreur: {error}</p>}
 
       {audioUrl ? (
         <>
           <button className={styles.pdfButton} onClick={handlePlay}>
             ▶️ Écouter le morceau
           </button>
-          <audio ref={audioRef} src={audioUrl} />
+          <audio
+            ref={audioRef}
+            src={audioUrl}
+            controls
+            className={styles.audioPlayer}
+          />
         </>
       ) : (
         <p>Audio non disponible</p>
