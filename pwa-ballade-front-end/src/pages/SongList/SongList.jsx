@@ -6,14 +6,10 @@ import arrow from "../../assets/icons/arrow.svg";
 import { useTranslation } from "react-i18next";
 import i18n from "../../i18n";
 
-
-
 function SongList() {
   const { t } = useTranslation();
-
   const [songs, setSongs] = useState([]);
 
-  // Filtres (tous à zéro au départ)
   const [filters, setFilters] = useState({
     origin: "",
     difficulty: "",
@@ -55,8 +51,6 @@ function SongList() {
     );
   });
 
-  // 🔁 Fonction pour réinitialiser les filtres
-  
   const resetFilters = () => {
     setFilters({
       origin: "",
@@ -67,18 +61,9 @@ function SongList() {
 
   return (
     <div className={styles.pageWrapper}>
-      {/* Sélecteur de langue */}
       <div className={styles.languageToggle}>
-        <img
-          src="https://flagcdn.com/w40/gb.png"
-          alt="EN"
-          onClick={() => changeLanguage("en")}
-        />
-        <img
-          src="https://flagcdn.com/w40/fr.png"
-          alt="FR"
-          onClick={() => changeLanguage("fr")}
-        />
+        <img src="https://flagcdn.com/w40/gb.png" alt="EN" onClick={() => changeLanguage("en")} />
+        <img src="https://flagcdn.com/w40/fr.png" alt="FR" onClick={() => changeLanguage("fr")} />
       </div>
 
       <Link to="/" className={styles.backArrow}>
@@ -87,7 +72,6 @@ function SongList() {
 
       <h1 className={styles.pageTitle}>{t("songList")}</h1>
 
-      {/* Filtres */}
       <div className={styles.filters}>
         <select
           value={filters.origin}
@@ -95,11 +79,9 @@ function SongList() {
             setFilters((prev) => ({ ...prev, origin: e.target.value }))
           }
         >
-          <option value=""> Origines</option>
+          <option value="">Origines</option>
           {Array.from(new Set(songs.map((s) => s.origin.geo_zone))).map((zone) => (
-            <option key={zone} value={zone}>
-              {zone}
-            </option>
+            <option key={zone} value={zone}>{zone}</option>
           ))}
         </select>
 
@@ -109,11 +91,9 @@ function SongList() {
             setFilters((prev) => ({ ...prev, difficulty: e.target.value }))
           }
         >
-          <option value=""> Difficultés</option>
+          <option value="">Difficultés</option>
           {Array.from(new Set(songs.map((s) => s.difficulty_level.level_label))).map((label) => (
-            <option key={label} value={label}>
-              {label}
-            </option>
+            <option key={label} value={label}>{label}</option>
           ))}
         </select>
 
@@ -125,31 +105,26 @@ function SongList() {
         >
           <option value="">Bénéficiaires</option>
           {Array.from(new Set(songs.map((s) => s.beneficiaries.benef_label))).map((label) => (
-            <option key={label} value={label}>
-              {label}
-            </option>
+            <option key={label} value={label}>{label}</option>
           ))}
         </select>
 
-        {/* 🔘 Bouton de réinitialisation */}
         <button className={styles.resetButton} onClick={resetFilters}>
           Réinitialiser 
         </button>
       </div>
 
-      {/* Liste des chansons */}
-      <div>
-
-      {filteredSongs.map((entry) => (
-  <Link
-    to={`/song/${entry.song_id}`}
-    key={entry.song_id}
-    className={styles.songTitle}
-  >
-    {entry.title}
-  </Link>
-))}
-
+      {/* Liste des chansons centrées */}
+      <div className={styles.songListContainer}>
+        {filteredSongs.map((entry) => (
+          <Link
+            to={`/song/${entry.song_id}`}
+            key={entry.song_id}
+            className={styles.songTitle}
+          >
+            {entry.title}
+          </Link>
+        ))}
       </div>
     </div>
   );
