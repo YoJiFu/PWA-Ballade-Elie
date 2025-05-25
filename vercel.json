@@ -1,5 +1,13 @@
 {
-  "rewrites": [
-    { "source": "/(.*)", "destination": "/" }
+  "version": 2,
+  "builds": [
+    {
+      "src": "pwa-ballade-front-end/package.json",
+      "use": "@vercel/static-build"
+    }
+  ],
+  "routes": [
+    { "handle": "filesystem" },
+    { "src": "/.*", "dest": "pwa-ballade-front-end" }
   ]
 }
