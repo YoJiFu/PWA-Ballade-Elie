@@ -1,13 +1,18 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
-
 import { VitePWA } from 'vite-plugin-pwa'
 
 export default defineConfig({
+  build: {
+    rollupOptions: {
+      external: ['i18next'] // Ajout pour résoudre l'erreur
+    }
+  },
   plugins: [
     react(),
     VitePWA({
       registerType: 'autoUpdate',
+      includeAssets: ['**/*.{js,css,html,ico,png,svg}'], // Correction du warning des fichiers manquants
       manifest: {
         name: 'Ballade',
         short_name: 'Ballade',
@@ -28,6 +33,9 @@ export default defineConfig({
             type: 'image/png'
           }
         ]
+      },
+      workbox: {
+        globPatterns: ['**/*.{js,css,html,ico,png,svg}'] // Pattern corrigé
       }
     })
   ]
