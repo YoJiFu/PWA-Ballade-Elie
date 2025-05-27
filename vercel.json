@@ -3,11 +3,16 @@
   "builds": [
     {
       "src": "pwa-ballade-front-end/package.json",
-      "use": "@vercel/static-build"
+      "use": "@vercel/static-build",
+      "config": {
+        "distDir": "dist"
+      }
     }
   ],
   "routes": [
-    { "handle": "filesystem" },
-    { "src": "/.*", "dest": "pwa-ballade-front-end" }
+    {
+      "src": "/(.*)",
+      "dest": "pwa-ballade-front-end/dist/index.html"
+    }
   ]
 }
